@@ -1,15 +1,15 @@
-#include <rclcpp/rclcpp.hpp>  // 引入ROS2客户端库的核心头文件
-#include <std_msgs/msg/string.hpp>  // 引入std_msgs中String消息类型的头文件
+#include <rclcpp/rclcpp.hpp>       // 引入ROS2客户端库的核心头文件
+#include <std_msgs/msg/string.hpp> // 引入std_msgs中String消息类型的头文件
 
-#include <chrono>  // 引入chrono库，用于处理时间相关的功能
+#include <chrono> // 引入chrono库，用于处理时间相关的功能
 
-using namespace std::chrono_literals;  // 允许使用后缀"s"来表示秒
+using namespace std::chrono_literals; // 允许使用后缀"s"来表示秒
 
 // 定义一个SimplePublisher类，继承自rclcpp::Node
 class SimplePublisher : public rclcpp::Node
 {
 public:
-  SimplePublisher() : Node("simple_publisher"), counter_(0)  // 构造函数，初始化节点名称和计数器
+  SimplePublisher() : Node("simple_publisher"), counter_(0) // 构造函数，初始化节点名称和计数器
   {
     // 创建一个发布者，发布std_msgs::msg::String类型的消息到"chatter"话题，消息队列长度为10
     pub_ = create_publisher<std_msgs::msg::String>("chatter", 10);
@@ -22,7 +22,7 @@ public:
   // 定时器回调函数，当定时器触发时调用
   void timerCallback()
   {
-    auto message = std_msgs::msg::String();  // 创建一个String类型的消息
+    auto message = std_msgs::msg::String(); // 创建一个String类型的消息
     // 设置消息内容为"Hello ROS 2 - counter:"加上计数器的值，并将计数器递增
     message.data = "Hello ROS 2 - counter:" + std::to_string(counter_++);
     // 发布消息
@@ -39,7 +39,7 @@ private:
 };
 
 // main函数，程序的入口点
-int main(int argc, char* argv[])
+int main(int argc, char *argv[])
 {
   // 初始化ROS2客户端库
   rclcpp::init(argc, argv);
