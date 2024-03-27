@@ -22,6 +22,8 @@ setup(
         'console_scripts': [
             'simple_publisher = pkg_py_example.simple_publisher:main',
             'simple_subscriber = pkg_py_example.simple_subscriber:main',
+            'simple_service_server = pkg_py_example.simple_service_server:main',
+            'simple_service_client = pkg_py_example.simple_service_client:main',
         ],
     },
 )
