@@ -1,6 +1,6 @@
 import rclpy                     # 用于与ROS 2核心进行交互的Python客户端库
 from rclpy.node import Node      # 节点父类
-from std_msgs.msg import String  # 发布标准的String数据  
+from std_msgs.msg import String  # 发布标准的String数据
 
 
 class SimplePublisher(Node):
