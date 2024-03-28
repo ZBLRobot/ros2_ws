@@ -24,6 +24,7 @@ setup(
             'simple_subscriber = pkg_py_example.simple_subscriber:main',
             'simple_service_server = pkg_py_example.simple_service_server:main',
             'simple_service_client = pkg_py_example.simple_service_client:main',
+            'simple_parameter = pkg_py_example.simple_parameter:main',
         ],
     },
 )

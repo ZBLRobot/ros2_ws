@@ -9,6 +9,7 @@ find_package(ament_cmake REQUIRED)
 find_package(rclcpp REQUIRED)
 find_package(std_msgs REQUIRED)
 find_package(pkg_interfaces REQUIRED)
+find_package(rcl_interfaces REQUIRED)
 
 add_executable(simple_publisher src/simple_publisher.cpp)
 ament_target_dependencies(simple_publisher rclcpp std_msgs)
@@ -22,11 +23,15 @@ ament_target_dependencies(simple_service_server rclcpp pkg_interfaces)
 add_executable(simple_service_client src/simple_service_client.cpp)
 ament_target_dependencies(simple_service_client rclcpp pkg_interfaces)
 
+add_executable(simple_parameter src/simple_parameter.cpp)
+ament_target_dependencies(simple_parameter rclcpp rcl_interfaces)
+
 install(TARGETS
   simple_publisher
   simple_subscriber
   simple_service_server
   simple_service_client
+  simple_parameter
   DESTINATION lib/${PROJECT_NAME}
 )
 
